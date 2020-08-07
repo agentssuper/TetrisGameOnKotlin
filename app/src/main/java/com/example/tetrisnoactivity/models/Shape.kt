@@ -20,9 +20,7 @@ enum class Shape(val frameCount: Int, val startPosition: Int) {
     abstract fun getFrame(frameNumber: Int): Frame
 }
 
-////
-///sdfasdf
-sdfsdffjjjj
+
 
 
 enum class Shape(val frameCount: Int, val startPosition: Int) {
