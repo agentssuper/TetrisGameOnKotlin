@@ -2,25 +2,6 @@ package com.example.tetrisnoactivity.models
 
 import java.lang.IllegalArgumentException
 
-enum class Shape(val frameCount: Int, val startPosition: Int) {
-    Tetromino(2,2) {
-        override fun getFrame(frameNumber: Int): Frame {
-            return when (frameNumber) {
-                0 -> Frame(4).addRow("1111")
-                1 -> Frame(1)
-                    .addRow("1")
-                    .addRow("1")
-                    .addRow("1")
-                    .addRow("1")
-                else -> throw IllegalAccessException("$frameNumber is an invalid frame number.")
-            }
-        }
-    };
-
-    abstract fun getFrame(frameNumber: Int): Frame
-}
-
-
 
 
 enum class Shape(val frameCount: Int, val startPosition: Int) {
@@ -100,11 +81,48 @@ enum class Shape(val frameCount: Int, val startPosition: Int) {
         }
     },
 
-    Tetromino6(4,1)
+    Tetromino6(4,1) {
+        override fun getFrame(frameNumber: Int): Frame {
+            return when (frameNumber) {
+                0 -> Frame(3)
+                    .addRow("100")
+                    .addRow("111")
+                1 -> Frame(2)
+                    .addRow("11")
+                    .addRow("10")
+                    .addRow("10")
+                2 -> Frame(3)
+                    .addRow("111")
+                    .addRow("001")
+                3 -> Frame(2)
+                    .addRow("01")
+                    .addRow("01")
+                    .addRow("11")
+                else -> throw IllegalArgumentException("$frameNumber is an invalid frame number.")
+            }
+        }
+    },
 
-
-
-
-
-
+    Tetromino7(4,1){
+        override fun getFrame(frameNumber: Int): Frame {
+            return  when (frameNumber) {
+                0 -> Frame(3)
+                    .addRow("001")
+                    .addRow("111")
+                1 -> Frame(2)
+                    .addRow("10")
+                    .addRow("10")
+                    .addRow("11")
+                2 -> Frame(3)
+                    .addRow("111")
+                    .addRow("100")
+                3 -> Frame(2)
+                    .addRow("11")
+                    .addRow("01")
+                    .addRow("01")
+                else -> throw IllegalArgumentException("$frameNumber is an invalid frame number.")
+            }
+        }
+    };
+    abstract  fun getFrame(frameNumber: Int): Frame
 }
